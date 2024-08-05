@@ -9,13 +9,21 @@ on:
 jobs:
   security:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@master
-      - uses: snyk/actions/setup@master
-      - uses: actions/setup-go@v1
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
         with:
-          go-version: '1.19'
-      - name: Snyk test
+          node-version: '14'
+
+      - name: Install Snyk
+        run: npm install -g snyk
+
+      - name: Authenticate Snyk
+        run: snyk auth ${{ secrets.SNYK_TOKEN }}
+
+      - name: Run Snyk to check for vulnerabilities
         run: snyk test
-        env:
-          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
