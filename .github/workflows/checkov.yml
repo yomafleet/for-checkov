@@ -75,7 +75,7 @@ jobs:
         uses: sonarsource/sonarqube-scan-action@master
         env:
           SONAR_TOKEN: 'squ_21a5cd2d91f35cee6cbd58a6c7c525a4526aa542'
-          SONAR_HOST_URL: 'sonar.yomafleet.tech'
+          SONAR_HOST_URL: sonar.yomafleet.tech
         #with:
         #  projectBaseDir: .
         #  extraArgs: |
