@@ -1,7 +1,7 @@
 name: Checkov Testing
 on:
   pull_request:
-    branches: [dev-master,feature/qa]
+    branches: [dev-master,main]
   push:
     branches:
       - feat/sta
